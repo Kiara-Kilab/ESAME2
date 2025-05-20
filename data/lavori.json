@@ -1,0 +1,75 @@
+[
+  {
+    "id": "1",
+    "titolo": "Crypto Website",
+    "descrizione": "Sito responsive per la gestione e promozione di criptovalute.",
+    "immagine": "img/work1.jpg",
+    "link": "work.php"
+  },
+  {
+    "id": "2",
+    "titolo": "E-commerce Biciclette",
+    "descrizione": "Negozio online per la vendita di biciclette e accessori sportivi.",
+    "immagine": "img/work2.jpg"
+  },
+  {
+    "id": "3",
+    "titolo": "Gestione Immobiliare",
+    "descrizione": "Gestione di immobili e affitti con pannello amministratore.",
+    "immagine": "img/work3.jpg"
+  },
+  {
+    "id": "4",
+    "titolo": "Landing Page",
+    "descrizione": "Landing page per startup tecnologica con call to action.",
+    "immagine": "img/work4.jpg"
+  },
+  {
+    "id": "5",
+    "titolo": "Agenzia Viaggi",
+    "descrizione": "Sito dinamico per promuovere destinazioni turistiche.",
+    "immagine": "img/work5.jpg"
+  },
+  {
+    "id": "6",
+    "titolo": "Sito Responsive",
+    "descrizione": "Layout adattivo per tutte le risoluzioni.",
+    "immagine": "img/work6.jpg"
+  },
+  {
+    "id": "7",
+    "titolo": "Portfolio Designer",
+    "descrizione": "Sito personale per mostrare lavori di design.",
+    "immagine": "img/work7.jpg"
+  },
+  {
+    "id": "8",
+    "titolo": "Landing App Mobile",
+    "descrizione": "Presentazione e download app mobile.",
+    "immagine": "img/work8.jpg"
+  },
+  {
+    "id": "9",
+    "titolo": "Sito Ristorante",
+    "descrizione": "Prenotazioni e menù online per ristoranti.",
+    "immagine": "img/work9.jpg"
+  },
+  {
+    "id": "10",
+    "titolo": "Web App ToDo",
+    "descrizione": "Applicazione per la gestione di attività.",
+    "immagine": "img/work10.jpg"
+  },
+  {
+    "id": "11",
+    "titolo": "Blog Personale",
+    "descrizione": "Blog dinamico per pubblicare articoli.",
+    "immagine": "img/work11.jpg"
+  },
+  {
+    "id": "12",
+    "titolo": "Sito Evento",
+    "descrizione": "Landing page per conferenze ed eventi live.",
+    "immagine": "img/work12.jpg"
+  }
+]
