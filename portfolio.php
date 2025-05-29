@@ -19,6 +19,19 @@ $portfolioItems = json_decode($portfolioJson, true);
   <link rel="stylesheet" href="css/style.css">
   <!-- Libreria icone Font Awesome -->
   <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css">
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+    }
+  });
+</script>
+
 </head>
 <body>
 
@@ -42,9 +55,7 @@ $portfolioItems = json_decode($portfolioJson, true);
           <p><?php echo htmlspecialchars($item['descrizione']); ?></p>
 
           <!-- Link al dettaglio solo per il primo progetto -->
-          <?php if ($item['id'] === "1"): ?>
-            <a href="work.php" class="btn btn-porfolio">Scopri di più</a>
-          <?php endif; ?>
+          <a href="work.php?id=<?= $item['id'] ?>" class="btn btn-porfolio" title="Vai al dettaglio di <?= htmlspecialchars($item['titolo']) ?>">Scopri di più</a>
         </article>
       <?php endforeach; ?>
 

@@ -1,53 +1,70 @@
 <?php
-// Imposta il titolo della pagina di dettaglio progetto
-$pageTitle = "Dettaglio Progetto | KiLab Web Lab";
+// Imposta il titolo della pagina
+$pageTitle = "Dettaglio Lavoro | KiLab Web Lab";
+
+// Leggi l'ID del lavoro passato via GET, oppure mostra errore se mancante
+$id = isset($_GET['id']) ? intval($_GET['id']) : null;
+
+if ($id === null) {
+  die("ID mancante. Ritorna alla <a href='index.php'>home</a>.");
+}
+
+// Carica il file JSON dei lavori
+$jsonData = file_get_contents("data/lavori.json");
+$lavori = json_decode($jsonData, true);
+
+// Cerca il lavoro con l'ID corrispondente
+$lavoroTrovato = null;
+foreach ($lavori as $lavoro) {
+  if ($lavoro['id'] == $id) {
+    $lavoroTrovato = $lavoro;
+    break;
+  }
+}
+
+// Se non trovato, mostra un messaggio
+if (!$lavoroTrovato) {
+  die("Lavoro non trovato. Ritorna alla <a href='index.php'>home</a>.");
+}
 ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Responsive Crypto Website by Kiara Inverardi, Full Stack Developer.">
+  <meta name="description" content="Dettaglio del lavoro: <?php echo htmlspecialchars($lavoroTrovato['titolo']); ?>">
   <title><?php echo $pageTitle; ?></title>
-  <!-- Foglio di stile principale -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- Libreria icone Font Awesome -->
-  <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css">
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+    }
+  });
+</script>
+
 </head>
 <body>
 
-<?php include 'partials/header.php'; // Include l'intestazione del sito ?>
+<?php include 'partials/header.php'; ?>
 
-<!-- Sezione Dettaglio Progetto -->
 <section class="project">
   <div class="container">
-    <!-- Immagine del progetto -->
-    <img src="img/work1-details.jpg" alt="Anteprima del Progetto" class="project-image">
-
-    <!-- Titolo del progetto -->
-    <h2 class="project-title">Responsive Crypto Website</h2>
-
-    <!-- Link esterno al progetto -->
-    <p class="project-link">
-      <i class="fa-solid fa-link"></i>
-      <a href="#" target="_blank"><strong>www.cryptosite.com</strong></a>
-    </p>
-
-    <!-- Sottotitolo -->
-    <h3 class="project-subtitle">Presentazione del progetto</h3>
-
-    <!-- Descrizione del progetto -->
-    <p class="project-description">
-      Questo progetto rappresenta un sito responsive per la gestione e promozione di criptovalute. Include animazioni moderne, griglie responsive e un'interfaccia chiara e accessibile da ogni dispositivo.
-    </p>
-
-    <p class="project-description">
-      Il sito è stato progettato per essere altamente performante e accessibile, utilizzando HTML5, CSS3, JavaScript moderno e una struttura mobile-first. L'obiettivo era combinare velocità e affidabilità per offrire un'esperienza utente efficace e coinvolgente.
-    </p>
+    <img src="<?php echo $lavoroTrovato['immagine']; ?>" alt="Anteprima progetto" class="project-image">
+    <h1 class="project-title"><?php echo htmlspecialchars($lavoroTrovato['titolo']); ?></h1>
+    <p class="project-description"><?php echo htmlspecialchars($lavoroTrovato['descrizione']); ?></p>
+    <div class="project-link">
+      <a href="<?php echo $lavoroTrovato['link']; ?>" target="_blank" title="Vai al progetto">Visita il sito</a>
+    </div>
   </div>
 </section>
 
-<?php include 'partials/footer.php'; // Include il piè di pagina del sito ?>
+<?php include 'partials/footer.php'; ?>
 
 </body>
 </html>

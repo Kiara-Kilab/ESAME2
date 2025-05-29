@@ -4,7 +4,7 @@
 <footer>
   <div class="container">
     <p>&copy; <?php echo date('Y'); ?> - KiLab Web Lab |
-      <a href="privacy-policy.php">Privacy Policy</a>
+      <a href="privacy-policy.php" title="Visualizza la Privacy Policy">Privacy Policy</a>
     </p>
   </div>
 </footer>
@@ -21,5 +21,4 @@
   }
 </script>
 
-</body>
-</html>
+
